@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 // Destructuring
-const book = getBook(3);
+const book = getBook(2);
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
   book;
 
@@ -188,7 +188,29 @@ function getTotalReviewCount(book) {
 }
 console.log(getTotalReviewCount(book));
 
+// Short circuiting and logical operators
+console.log(true && "str");
+console.log(false && "str");
+console.log(hasMovieAdaptation && "this book has a movie");
+// falsy: 0, '', null, undefined
+console.log("hao" && "str");
+console.log(0 && "str");
+console.log(true || "str");
+console.log(false || "str");
+
+const spanishTranslation = book.translations.spanish || "not translated";
+spanishTranslation;
+
+// logical operator is based on truthy/falsy value, but sometimes 0(falsy) is an actual value(count)
+// nullish operator is based on null/undefined value -> better solution
+console.log(book.reviews.librarything.reviewsCount);
+const countWrong = book.reviews.librarything.reviewsCount || "no data";
+countWrong;
+const countCorrect = book.reviews.librarything.reviewsCount ?? "no data";
+countCorrect;
+
 // Array methods
+// 1. Map
 const books = getBooks();
 const titles = books.map((book) => book.title);
 titles;
