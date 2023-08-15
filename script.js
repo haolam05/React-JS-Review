@@ -165,10 +165,14 @@ const updatedBook = {
 };
 updatedBook;
 
+// Arrow functions
+const getYear = (str) => str.split("-")[0];
+console.log(getYear(publicationDate));
+
 // Template literals
-const summary = `${title}, a ${pages}-pages long book, was written by ${author} and published in ${
-  publicationDate.split("-")[0]
-}. The book has${hasMovieAdaptation ? "" : " not"} been adapted as a movie`;
+const summary = `${title}, a ${pages}-pages long book, was written by ${author} and published in ${getYear(
+  publicationDate
+)}. The book has${hasMovieAdaptation ? "" : " not"} been adapted as a movie`;
 summary;
 
 // Ternary operators
