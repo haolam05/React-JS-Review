@@ -144,9 +144,23 @@ function getBook(id) {
 }
 
 // Destructuring
-const book = getBook(2);
+const book = getBook(1);
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
   book;
 
 console.log(author, title, genres);
-const [primaryGenre, secondaryGenre] = genres;
+
+// Rest/Spread operators
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
+console.log(otherGenres);
+const newGenres = [...genres, "epic fantasy"];
+
+const updatedBook = {
+  ...book,
+  // Adding a new property
+  moviePublicationDate: "2001-12-19",
+
+  // Overriding exisiting fields
+  pages: 1210,
+};
+updatedBook;
